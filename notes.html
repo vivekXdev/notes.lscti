@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notes</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body oncontextmenu="return false">
+
+<h2>Chapter 1: Generation of Computer</h2>
+
+<div class="notes">
+  <h3>1️⃣ First Generation (1940–1956)</h3>
+  <p>
+    First generation computers used vacuum tubes.
+    They were very large, consumed more power and generated heat.
+    Example: ENIAC
+  </p>
+
+  <h3>2️⃣ Second Generation (1956–1963)</h3>
+  <p>
+    Transistors replaced vacuum tubes.
+    Computers became smaller, faster and reliable.
+  </p>
+
+  <h3>3️⃣ Third Generation (1964–1971)</h3>
+  <p>
+    Integrated Circuits (ICs) were introduced.
+    Operating systems were developed.
+  </p>
+</div>
+
+<p class="note">
+⚠️ Notes are for reading only. Downloading is disabled.
+</p>
+
+<script>
+// block save & print
+document.addEventListener("keydown", function(e) {
+  if (e.ctrlKey && (e.key === "s" || e.key === "p")) {
+    e.preventDefault();
+    alert("Download / Print disabled");
+  }
+});
+</script>
+
+</body>
+</html>

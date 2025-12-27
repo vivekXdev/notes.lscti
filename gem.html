@@ -1,0 +1,738 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institute Digital Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS STYLING --- */
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --accent-color: #3498db;  /* Light Blue */
+            --cta-color: #e67e22;     /* Orange for buttons */
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Navbar */
+        nav {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        nav .btn-login {
+            background-color: var(--cta-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://source.unsplash.com/1600x900/?computer,code');
+            background-size: cover;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        /* Grid Layout for Cards */
+        .grid-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* Card Design */
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Dropdown & Button Styling */
+        .selection-area {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background: white;
+            font-size: 1rem;
+        }
+
+        button.action-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button.action-btn:hover {
+            background-color: var(--cta-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fas fa-graduation-cap"></i> TechInstitute Lib</div>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li class="btn-login">Student Login</li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Welcome to Student Resource Hub</h1>
+        <p>Download Notes, Syllabus, Projects & More in One Click</p>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">What are you looking for today?</h2>
+
+        <div class="grid-wrapper">
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-book-open"></i></div>
+                <h3>Lecture Notes</h3>
+                <p>Chapter-wise handwritten and digital notes.</p>
+                
+                <div class="selection-area">
+                    <label>Select Subject/Software:</label>
+                    <select id="notes-select">
+                        <option value="" disabled selected>-- Choose --</option>
+                        <option value="Python">Python Programming</option>
+                        <option value="Java">Core Java</option>
+                        <option value="C++">C++ Language</option>
+                        <option value="Excel">MS Excel (Advanced)</option>
+                        <option value="Tally">Tally Prime / GST</option>
+                    </select>
+                    <button class="action-btn" onclick="handleDownload('Notes')">Get Notes</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-list-alt"></i></div>
+                <h3>Course Syllabus</h3>
+                <p>Check the latest curriculum and roadmap.</p>
+                
+                <div class="selection-area">
+                    <label>Select Course:</label>
+                    <select id="syllabus-select">
+                        <option value="" disabled selected>-- Choose --</option>
+                        <option value="ADCA">ADCA</option>
+                        <option value="DCA">DCA</option>
+                        <option value="CCC">CCC / O-Level</option>
+                        <option value="WebDesign">Web Designing</option>
+                        <option value="Graphic">Graphic Design</option>
+                    </select>
+                    <button class="action-btn" onclick="handleDownload('Syllabus')">View Syllabus</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Live Projects</h3>
+                <p>Source code and documentation for students.</p>
+                
+                <div class="selection-area">
+                    <label>Select Technology:</label>
+                    <select id="project-select">
+                        <option value="" disabled selected>-- Choose --</option>
+                        <option value="HTML_CSS">HTML/CSS Website</option>
+                        <option value="PHP">PHP & MySQL</option>
+                        <option value="Python_AI">Python AI Project</option>
+                        <option value="Android">Android App</option>
+                        <option value="VB">VB.NET System</option>
+                    </select>
+                    <button class="action-btn" onclick="handleDownload('Project')">Find Projects</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+                <h3>Study Material</h3>
+                <p>Q&A, Interview Questions, and E-Books.</p>
+                
+                <div class="selection-area">
+                    <label>Select Topic:</label>
+                    <select id="material-select">
+                        <option value="" disabled selected>-- Choose --</option>
+                        <option value="Interview">Interview Q&A</option>
+                        <option value="Shortcuts">Keyboard Shortcuts</option>
+                        <option value="Exam_Paper">Previous Exam Papers</option>
+                        <option value="Ebook">Reference E-Books</option>
+                    </select>
+                    <button class="action-btn" onclick="handleDownload('Material')">Download PDF</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Computer Institute Library. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleDownload(category) {
+            // Find the select element based on the category
+            let selectID = "";
+            if (category === 'Notes') selectID = "notes-select";
+            else if (category === 'Syllabus') selectID = "syllabus-select";
+            else if (category === 'Project') selectID = "project-select";
+            else if (category === 'Material') selectID = "material-select";
+
+            const selectedValue = document.getElementById(selectID).value;
+
+            if (selectedValue === "") {
+                alert("Please select an option first!");
+            } else {
+                // In a real website, this would redirect to the file link
+                alert("Redirecting to " + category + " for: " + selectedValue);
+                // Example: window.location.href = "/downloads/" + selectedValue + ".pdf";
+            }
+        }
+    </script>
+
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Institute Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- COLOR VIBE & SETTINGS --- */
+        :root {
+            --primary: #0f172a;      /* Deep Navy */
+            --secondary: #3b82f6;    /* Bright Blue */
+            --accent-orange: #f59e0b;/* Vibrant Orange */
+            --accent-green: #10b981; /* Success Green */
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER & NAVBAR --- */
+        nav {
+            background: var(--primary);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span { color: var(--secondary); }
+
+        .search-container {
+            flex: 0.6;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { color: #cbd5e1; font-size: 1.2rem; }
+
+        /* --- GRID SYSTEM --- */
+        .container {
+            max-width: 1200px;
+            margin: -50px auto 50px; /* Overlap with hero */
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* --- STYLISH CARDS --- */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Colorful icons circle */
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.8rem;
+        }
+
+        .bg-blue   { background: #eff6ff; color: #3b82f6; }
+        .bg-orange { background: #fff7ed; color: #f59e0b; }
+        .bg-purple { background: #faf5ff; color: #a855f7; }
+        .bg-green  { background: #ecfdf5; color: #10b981; }
+
+        .card h3 { margin-bottom: 15px; font-weight: 700; }
+
+        /* Selection Dropdown */
+        .select-wrapper {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: #f8fafc;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: border 0.3s;
+        }
+
+        select:focus { border-color: var(--secondary); outline: none; }
+
+        /* Buttons with Animation */
+        .download-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: filter 0.3s;
+        }
+
+        .btn-blue   { background: var(--secondary); color: white; }
+        .btn-orange { background: var(--accent-orange); color: white; }
+        .btn-purple { background: #a855f7; color: white; }
+        .btn-green  { background: var(--accent-green); color: white; }
+
+        .download-btn:hover { filter: brightness(1.1); }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">TECH<span>LIBRARY</span></div>
+        <div class="search-container">
+            <input type="text" placeholder="Search for notes, projects, software...">
+        </div>
+        <div style="color: white; font-weight: bold; cursor: pointer;">
+            <i class="fas fa-user-circle"></i> Student Portal
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Digital Study Center</h1>
+        <p>Expert notes and resources for your computer journey</p>
+    </section>
+
+    <div class="container">
+        <div class="grid">
+
+            <div class="card">
+                <div class="icon-box bg-blue"><i class="fas fa-file-alt"></i></div>
+                <h3>Lecture Notes</h3>
+                <div class="select-wrapper">
+                    <select id="s1">
+                        <option value="">Select Software</option>
+                        <option>Python Programming</option>
+                        <option>Advanced Excel</option>
+                        <option>Tally Prime</option>
+                        <option>Graphic Design</option>
+                    </select>
+                </div>
+                <button class="download-btn btn-blue">Download PDF</button>
+            </div>
+
+            <div class="card">
+                <div class="icon-box bg-orange"><i class="fas fa-map"></i></div>
+                <h3>Course Syllabus</h3>
+                <div class="select-wrapper">
+                    <select id="s2">
+                        <option value="">Select Course</option>
+                        <option>ADCA (1 Year)</option>
+                        <option>DCA (6 Months)</option>
+                        <option>Web Development</option>
+                        <option>CCC Certification</option>
+                    </select>
+                </div>
+                <button class="download-btn btn-orange">View Syllabus</button>
+            </div>
+
+            <div class="card">
+                <div class="icon-box bg-purple"><i class="fas fa-code"></i></div>
+                <h3>Live Projects</h3>
+                <div class="select-wrapper">
+                    <select id="s3">
+                        <option value="">Select Language</option>
+                        <option>HTML/CSS/JS</option>
+                        <option>PHP & MySQL</option>
+                        <option>Python Django</option>
+                        <option>C++ Mini Projects</option>
+                    </select>
+                </div>
+                <button class="download-btn btn-purple">Source Code</button>
+            </div>
+
+            <div class="card">
+                <div class="icon-box bg-green"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Study Material</h3>
+                <div class="select-wrapper">
+                    <select id="s4">
+                        <option value="">Select Topic</option>
+                        <option>Interview Questions</option>
+                        <option>Shortcut Keys</option>
+                        <option>Question Bank</option>
+                        <option>E-Books</option>
+                    </select>
+                </div>
+                <button class="download-btn btn-green">Get Material</button>
+            </div>
+
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 30px; color: #64748b;">
+        &copy; 2025 Computer Excellence Institute. Powered by Tech-Library.
+    </footer>
+
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Institute - Advanced Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --success: #10b981;
+            --bg: #f1f5f9;
+        }
+
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #334155; }
+
+        /* Navigation */
+        nav { background: var(--primary); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: white; font-size: 1.5rem; font-weight: bold; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
+
+        /* Hero */
+        .hero { background: linear-gradient(45deg, #1e293b, #3b82f6); color: white; padding: 60px 5%; text-align: center; }
+
+        /* Stats Bar */
+        .stats-bar { display: flex; justify-content: space-around; background: white; padding: 20px; width: 80%; margin: -30px auto 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; }
+        .stat-item h2 { color: var(--secondary); margin: 0; }
+        .stat-item p { margin: 0; font-size: 0.8rem; color: #64748b; }
+
+        /* Main Grid */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+
+        .card { background: white; padding: 25px; border-radius: 15px; text-align: center; transition: 0.3s; border-bottom: 4px solid #ddd; }
+        .card:hover { transform: translateY(-10px); border-bottom-color: var(--secondary); }
+        .icon { font-size: 2.5rem; margin-bottom: 15px; }
+
+        /* Form elements */
+        select { width: 100%; padding: 10px; margin: 15px 0; border-radius: 8px; border: 1px solid #cbd5e1; }
+        .btn { width: 100%; padding: 12px; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-blue { background: var(--secondary); }
+        .btn-red { background: var(--danger); }
+
+        /* Testimonials Section */
+        .test-section { background: #fff; padding: 50px 5%; margin-top: 50px; text-align: center; }
+        .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px; }
+        .test-card { padding: 20px; border-left: 4px solid var(--accent); background: #f8fafc; text-align: left; font-style: italic; }
+
+        /* Footer */
+        footer { background: var(--primary); color: white; padding: 40px 5%; margin-top: 50px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid #334155; padding-top: 20px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo"><i class="fas fa-desktop"></i> EDU-CORE</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Courses</a>
+        <a href="#">Contact</a>
+        <a href="#" style="background:var(--accent); padding:8px 15px; border-radius:5px;">Student Login</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Institute Digital Library</h1>
+    <p>Empowering Students with Premium Resources & Practice Sets</p>
+</section>
+
+<div class="stats-bar">
+    <div class="stat-item"><h2>500+</h2><p>Notes PDF</p></div>
+    <div class="stat-item"><h2>50+</h2><p>Projects</p></div>
+    <div class="stat-item"><h2>1000+</h2><p>Active Students</p></div>
+    <div class="stat-item"><h2>100%</h2><p>Free Access</p></div>
+</div>
+
+<div class="container">
+    <div class="grid">
+        <div class="card">
+            <div class="icon" style="color: #3b82f6;"><i class="fas fa-book"></i></div>
+            <h3>Study Notes</h3>
+            <select><option>Select Subject</option><option>Python</option><option>Tally</option><option>Excel</option></select>
+            <button class="btn btn-blue">Get PDF</button>
+        </div>
+
+        <div class="card">
+            <div class="icon" style="color: #f59e0b;"><i class="fas fa-file-invoice"></i></div>
+            <h3>Syllabus</h3>
+            <select><option>Select Course</option><option>ADCA</option><option>DCA</option><option>Web Dev</option></select>
+            <button class="btn btn-blue">Download</button>
+        </div>
+
+        <div class="card">
+            <div class="icon" style="color: #a855f7;"><i class="fas fa-code"></i></div>
+            <h3>Projects</h3>
+            <select><option>Select Tech</option><option>HTML/CSS</option><option>PHP</option><option>Java</option></select>
+            <button class="btn btn-blue">Source Code</button>
+        </div>
+
+        <div class="card">
+            <div class="icon" style="color: #10b981;"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Material</h3>
+            <select><option>Select Topic</option><option>Interview</option><option>Shortcuts</option><option>Tips</option></select>
+            <button class="btn btn-blue">View All</button>
+        </div>
+
+        <div class="card" style="border-bottom-color: var(--danger);">
+            <div class="icon" style="color: var(--danger);"><i class="fas fa-question-circle"></i></div>
+            <h3>Old Papers</h3>
+            <select><option>Select Year</option><option>2023 Papers</option><option>2022 Papers</option><option>Model Sets</option></select>
+            <button class="btn btn-red">Download Paper</button>
+        </div>
+    </div>
+</div>
+
+<section class="test-section">
+    <h2>Student Success Stories</h2>
+    <div class="test-grid">
+        <div class="test-card">
+            "The Python notes are very easy to understand. The project source code helped me pass my final exam with an A grade!"
+            <br><br><strong>- Rahul Sharma (ADCA Student)</strong>
+        </div>
+        <div class="test-card">
+            "Syllabus clarity is great. I exactly knew what to study for the CCC exam. Highly recommended library!"
+            <br><br><strong>- Priya Verma (CCC Aspirant)</strong>
+        </div>
+        <div class="test-card">
+            "Finding old question papers was so difficult before, but now it's just one click away. Best feature ever!"
+            <br><br><strong>- Amit Singh (Web Dev Student)</strong>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div>
+            <h3>About Library</h3>
+            <p>Providing high-quality computer education resources to every student of our institute for free.</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <ul style="list-style:none; padding:0; line-height:2;">
+                <li><a href="#" style="color:#cbd5e1">Privacy Policy</a></li>
+                <li><a href="#" style="color:#cbd5e1">Terms of Use</a></li>
+                <li><a href="#" style="color:#cbd5e1">Request New Notes</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Connect With Us</h3>
+            <p><i class="fab fa-whatsapp"></i> +91 98XXX XXXXX</p>
+            <p><i class="fas fa-envelope"></i> help@institute.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2025 Tech Institute Digital Library | All Rights Reserved
+    </div>
+</footer>
+
+</body>
+</html>

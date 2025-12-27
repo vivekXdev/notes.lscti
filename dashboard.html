@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LMS Dashboard</title>
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f4f6f8;
+}
+
+/* HEADER */
+.header{
+  background:#1e293b;
+  color:white;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* MENU */
+.menu{
+  display:flex;
+  gap:10px;
+  background:#e2e8f0;
+  padding:10px;
+}
+.menu button{
+  padding:10px 15px;
+  border:none;
+  cursor:pointer;
+  background:white;
+  border-radius:5px;
+  font-weight:bold;
+}
+.menu button:hover{
+  background:#cbd5e1;
+}
+
+/* CONTENT */
+.content{
+  padding:20px;
+}
+.section{
+  display:none;
+  background:white;
+  padding:20px;
+  border-radius:8px;
+  box-shadow:0 0 5px #ccc;
+}
+
+/* DEFAULT SHOW */
+.section.active{
+  display:block;
+}
+</style>
+</head>
+
+<body oncontextmenu="return false">
+  
+  <!-- HEADER -->
+  <div class="header">
+    <h2>LSCTI LIBBRARY</h2>
+    <span>Welcome, Student</span>
+  </div>
+  
+  <!-- MENU -->
+  <div class="menu">
+    <button onclick="showSection('notes')">📘 Notes</button>
+    <button onclick="showSection('syllabus')">📑 Syllabus</button>
+    <button onclick="showSection('projects')">🛠 Projects</button>
+    <button onclick="showSection('material')">📂 Study Material</button>
+  </div>
+  
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div id="notes" class="section active">
+      <h3>Notes Section</h3>
+      <div class="notes-layout">
+      
+        <!-- LEFT SOFTWARE LIST -->
+        <div class="software-list">
+          <ul>
+            <li onclick="openNote('notepad')">Notepad</li>
+            <li onclick="openNote('wordpad')">WordPad</li>
+            <li onclick="openNote('paint')">Paint</li>
+            <li onclick="openNote('cmd')">DOS (CMD)</li>
+            <li onclick="openNote('word')">MS Word</li>
+            <li onclick="openNote('excel')">MS Excel</li>
+            <li onclick="openNote('ppt')">MS PowerPoint</li>
+            <li onclick="openNote('access')">MS Access</li>
+            <li onclick="openNote('python')">Python</li>
+            <li onclick="openNote('cpp')">C / C++</li>
+            <li onclick="openNote('tally')">Tally</li>
+            <li onclick="openNote('html')">HTML</li>
+            <li onclick="openNote('css')">CSS</li>
+            <li onclick="openNote('js')">JavaScript</li>
+            <li onclick="openNote('php')">PHP</li>
+            <li onclick="openNote('shortcuts')">Shortcut Keys</li>
+            <li onclick="openNote('fundamentals')">Computer Fundamentals</li>
+            <li onclick="openNote('stats')">Statistics</li>
+          </ul>
+        </div>
+      
+        <!-- RIGHT NOTES CONTENT -->
+        <div class="note-content" id="noteContent">
+          <h3>Select a software to view notes</h3>
+        </div>
+      
+      </div>
+    </div>
+    
+  <div id="syllabus" class="section">
+    <h3>Syllabus Section</h3>
+    <p>
+      • Computer Fundamentals<br>
+      • Web Designing<br>
+      • MS Office<br>
+      • Programming Basics
+    </p>
+  </div>
+
+  <div id="projects" class="section">
+    <h3>Projects Section</h3>
+    <ul>
+      <li>Personal Portfolio Website</li>
+      <li>Calculator using JS</li>
+      <li>Student Result System</li>
+    </ul>
+  </div>
+
+  <div id="material" class="section">
+    <h3>Study Material</h3>
+    <ul>
+      <li>Shortcut Keys</li>
+      <li>Interview Questions</li>
+      <li>Practice Worksheets</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+function showSection(id){
+  let sections=document.querySelectorAll('.section');
+  sections.forEach(sec=>sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// basic download protection
+document.addEventListener("keydown",function(e){
+  if(e.ctrlKey && (e.key==="s" || e.key==="p")){
+    e.preventDefault();
+  }
+});
+</script>
+
+</body>
+</html>
+
+
