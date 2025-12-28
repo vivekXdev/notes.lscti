@@ -63,7 +63,7 @@
 <nav>
     <div class="logo"><u>LSCTI</u></div>
     <div class="nav-links">
-        <a href="../index.html">Home</a>
+        <a href="#" onclick="navigateToHome()">Home</a>
         <a href="course.html">Courses</a>
         <a href="https://wa.me/919910602752" target="_blank" style="color: white;">Contact</a>
         <a href="#" onclick="navigateToLogin()" class="login-btn" style="background:var(--accent); padding:8px 15px; border-radius:5px;">Login</a>
@@ -165,6 +165,20 @@
         &copy; 2025 Life Set Computer Training Institute | All Rights Reserved
     </div>
 </footer>
+<script>
+function navigateToHome() {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 500);
+}
+function navigateToLogin() {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        window.location.href = 'login.html';
+    }, 500);
+}
+</script>
 
-</body>
+</body> 
 </html>
