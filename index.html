@@ -85,7 +85,19 @@
         <div class="card">
             <div class="icon" style="color: #2fdd8f;"><i class="fas fa-book"></i></div>
             <h3>Study Notes</h3>
-            <select id="notes-select"><option>Select Topic</option><option value="notes/paint-note.html">Paint</option><option value="notes/html-note.html">Html</option><option value="notes/excel-note.html">Excel</option></select>
+            <select id="notes-select"><option>Select Topic</option>
+                <option value="notes/paint-note.html">Paint</option>
+                <option value="notes/html-note.html">Html</option>
+                <option value="notes/excel-note.html">Excel</option>
+                <option value="notes/tally-notes.html">Tally prime</option>
+                <option value="notes/dos-notes.html">Dos(CMD)</option>
+                <option value="notes/charts-notes.html">Types of charts</option>
+                <option value="notes/c-notes.html">C language</option>
+                <option value="notes/data analysis & statics.html">Data analysis & statics</option>
+                <option value="notes/python-cheetsheet.html">Python cheetsheet</option>
+                <option value="notes/let-us-c-notebook.html">Let us c Book</option>
+            </select>
+               
             <button class="btn btn-blue" onclick="visitNotes()">VISIT</button>
         </div>
 
@@ -173,7 +185,7 @@ function navigateTocourse() {
     document.body.style.opacity = '0';
     setTimeout(() => {
         window.location.href = 'course.html';
-    }, 500);
+    }, 100);
 }
 
 function visitNotes() {
