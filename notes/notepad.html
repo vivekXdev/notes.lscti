@@ -54,93 +54,56 @@
         footer { background: var(--primary); color: white; padding: 40px 5%; margin-top: 50px; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
         .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid #334155; padding-top: 20px; font-size: 0.8rem; }
-    </style>
+        .pdf-container{
+        width: 100%;
+        height: 80vh;   /* screen ke 80% height */
+        border: 1px solid #ddd;
+        }
+
+        .pdf-container iframe{
+        width: 100%;
+        height: 100%;
+        border: none;
+}
+        .download-btn{
+        display: inline-block;
+        margin: 20px auto;
+        padding: 12px 25px;
+        background: var(--secondary);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        }
+</style>
 </head>
 <body>
 
 <nav>
     <div class="logo"><u>LSCTI</u></div>
     <div class="nav-links">
-        <a href="#hero">Home</a>
-        <a href="#" onclick="navigateTocourse()">Courses</a>
+        <a href="../index.html">Home</a>
+        <a href="../course.html">Courses</a>
         <a href="https://wa.me/919910602752" target="_blank" style="color: white;">Contact</a>
-        <a href="#" onclick="navigateToLogin()" class="login-btn" style="background:var(--accent); padding:8px 15px; border-radius:5px;">Login</a>
+        <a href="../login.html" onclick="navigateToLogin()" class="login-btn" style="background:var(--accent); padding:8px 15px; border-radius:5px;">Login</a>
     </div>
 </nav>
-
-<section id="hero">
-    <h1>Life set computer traning institute</h1>
-    <p>Empowering Students with Premium Resources & Practice Sets</p>
-</section>
-
-<div class="stats-bar">
-    <div class="stat-item"><h2>50+</h2><p>Notes PDF</p></div>
-    <div class="stat-item"><h2>20+</h2><p>Projects</p></div>
-    <div class="stat-item"><h2>20+</h2><p>quention paper</p></div>
-    <div class="stat-item"><h2>100%</h2><p>Free Access</p></div>
+<!-- paint-->
+ <div class="pdf-container">
+  <iframe 
+    src="https://drive.google.com/file/d/1lIp9qlbs0LdYAgPJhMP0mALL1VCEXMzD/preview"
+    loading="lazy"
+    allow="autoplay">
+  </iframe>
 </div>
 
-<div class="container">
-    <div class="grid">
-        <div class="card">
-            <div class="icon" style="color: #2fdd8f;"><i class="fas fa-book"></i></div>
-            <h3>Study Notes</h3>
-            <select id="notes-select"><option>Select Topic</option>
-                <option value="notes/paint.html">Paint</option>
-                <option value="notes/notepad.html">Notepad</option>
-                <option value="notes/wordpad.html">Wordpad</option>
-                <option value="notes/html.html">Html</option>
-                <option value="notes/excel.html">Excel</option>
-                <option value="notes/tally.html">Tally prime</option>
-                <option value="notes/dos.html">Dos(CMD)</option>
-                <option value="notes/charts.html">Types of charts</option>
-                <option value="notes/c.html">C language</option>
-                <option value="notes/data analysis & statics.html">Data analysis & statics</option>
-                <option value="notes/python-cheetsheet.html">Python cheetsheet</option>
-                <option value="notes/let-us-c-notebook.html">Let us c Book</option>
-                <option value="notes/html-shortnotes.html">Html shortnotes</option>
-            </select>
-               
-            <button class="btn btn-blue" onclick="visitNotes()">VISIT</button>
-        </div>
 
-        <div class="card">
-            <div class="icon" style="color: #f59e0b;"><i class="fas fa-file-invoice"></i></div>
-            <h3>Syllabus</h3>
-            <select><option>Select Course</option><option>ADCA</option><option>DCA</option><option>Web Dev</option></select>
-            <button class="btn btn-blue">VISIT</button>
-        </div>
-
-        <div class="card">
-            <div class="icon" style="color: #a855f7;"><i class="fas fa-code"></i></div>
-            <h3>Projects</h3>
-            <select><option>Select Tech</option><option>HTML/CSS</option><option>PHP</option><option>Java</option></select>
-            <button class="btn btn-blue">VISIT</button>
-        </div>
-
-        <div class="card">
-            <div class="icon" style="color: #10b981;"><i class="fas fa-graduation-cap"></i></div>
-            <h3>Study Material</h3>
-            <select><option>Select Topic</option><option>Interview</option><option>Shortcuts</option><option>Tips</option></select>
-            <button class="btn btn-blue">VISIT</button>
-        </div>
-
-        <div class="card" style="border-bottom-color: var(--danger);">
-            <div class="icon" style="color: var(--danger);"><i class="fas fa-question-circle"></i></div>
-            <h3>Old Papers</h3>
-            <select><option>Select Year</option><option>2023 Papers</option><option>2022 Papers</option><option>Model Sets</option></select>
-            <button class="btn btn-red">VISIT</button>
-        </div>
-    </div>
-</div>
-
-<section class="test-section">
-    <h2>Website updating wait ----</h2>
-    <div class="test-grid">
-        <div class="test-card">
-            
-     
-</section>
+<a 
+  href="https://drive.google.com/file/d/1lIp9qlbs0LdYAgPJhMP0mALL1VCEXMzD/view"
+  target="_blank"
+  class="download-btn">
+  Download PDF
+</a>
 
 <footer>
     <div class="footer-content">
@@ -166,31 +129,6 @@
         &copy; 2025 Tech Institute Digital Library | All Rights Reserved
     </div>
 </footer>
-
-<script>
-function navigateToLogin() {
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        window.location.href = 'login.html';
-    }, 500);
-}
-function navigateTocourse() {
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        window.location.href = 'course.html';
-    }, 100);
-}
-
-function visitNotes() {
-    const select = document.getElementById('notes-select');
-    const selectedValue = select.value;
-    if (selectedValue) {
-        window.location.href = selectedValue;
-    } else {
-        alert('Please select a topic first');
-    }
-}
-</script>
 
 </body>
 </html>
