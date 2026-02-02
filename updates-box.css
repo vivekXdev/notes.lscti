@@ -1,0 +1,88 @@
+.updates-container {
+    max-width: 100%;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+}
+
+.section-title {
+    color: #333;
+    border-bottom: 3px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+}
+
+.updates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.update-card {
+    display: flex;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    border: 1px solid #eee;
+}
+
+.update-card:hover {
+    transform: scale(1.02);
+}
+
+.update-date {
+    background: #007bff;
+    color: white;
+    min-width: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.update-date .day { font-size: 1.5rem; }
+.update-date .month { font-size: 0.9rem; text-transform: uppercase; }
+
+.update-info {
+    padding: 15px 20px;
+    flex-grow: 1;
+}
+
+.update-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.update-info p {
+    margin: 0 0 15px 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.update-btn {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.update-btn:hover {
+    background: #218838;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.4);
+}
+
+/* Mobile Responsive */
+@media (max-width: 500px) {
+    .update-card { flex-direction: column; }
+    .update-date { flex-direction: row; gap: 10px; padding: 10px; }
+}
