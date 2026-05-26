@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excel Formulas — Complete Student Notes</title>
+<style>
+    html{
+        scroll-behavior: smooth;
+    }
+  :root {
+    --bg: #F7F6F2;
+    --surface: #FFFFFF;
+    --accent: #1B4332;
+    --accent2: #52B788;
+    --accent3: #D8F3DC;
+    --highlight: #FFD60A;
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --text-muted: #999999;
+    --border: #E5E5E0;
+    --tag-math: #EDF2F4;
+    --tag-math-t: #2B2D42;
+    --tag-count: #FFF0F3;
+    --tag-count-t: #A4133C;
+    --tag-lookup: #EFF6FF;
+    --tag-lookup-t: #1D4ED8;
+    --tag-logic: #FFF7ED;
+    --tag-logic-t: #C2410C;
+    --tag-finance: #F0FDF4;
+    --tag-finance-t: #15803D;
+    --tag-text: #FAF5FF;
+    --tag-text-t: #7E22CE;
+    --tag-date: #FFF8F0;
+    --tag-date-t: #B45309;
+    --tag-db: #F0F9FF;
+    --tag-db-t: #0369A1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Lato', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--accent);
+    color: white;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(82,183,136,0.15);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 20%;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,214,10,0.08);
+  }
+  .hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent2);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--highlight); }
+  .hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.72);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: left; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--highlight);
+  }
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  /* ─── NAV PILLS ─── */
+  .nav-wrap {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  }
+  .nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--text-secondary);
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-pill:hover { color: var(--accent); border-color: var(--accent2); }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    display: inline-block; flex-shrink: 0;
+  }
+
+  /* ─── MAIN ─── */
+  .main { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  /* ─── SECTION ─── */
+  .section { margin-bottom: 56px; scroll-margin-top: 56px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .section-count {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: var(--bg);
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── FORMULA CARD ─── */
+  .formula-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .formula-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .formula-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
+  }
+  .formula-card-inner {
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  @media (max-width: 560px) {
+    .formula-card-inner { grid-template-columns: 1fr; gap: 10px; }
+  }
+  .formula-name-block { display: flex; flex-direction: column; gap: 6px; padding-top: 2px; }
+  .formula-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+  .formula-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .formula-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-top: 2px;
+    width: fit-content;
+  }
+  .formula-syntax {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    background: #F4F3EF;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #2B2D42;
+    margin-bottom: 8px;
+    word-break: break-all;
+    border-left: 3px solid var(--accent2);
+  }
+  .formula-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+  .formula-desc strong { color: var(--text-primary); font-weight: 700; }
+
+  /* ─── TIP BOX ─── */
+  .tip-box {
+    background: linear-gradient(135deg, #D8F3DC 0%, #B7E4C7 100%);
+    border: 1px solid #95D5B2;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .tip-text { font-size: 13px; color: #1B4332; line-height: 1.6; }
+  .tip-text strong { font-weight: 700; }
+
+  /* ─── CHEAT SHEET TABLE ─── */
+  .cheat-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .cheat-table th {
+    background: var(--accent);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  .cheat-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .cheat-table tr:last-child td { border-bottom: none; }
+  .cheat-table tr:nth-child(even) td { background: #FAFAF8; }
+  .cheat-table td:first-child {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    color: var(--accent);
+    white-space: nowrap;
+    width: 120px;
+  }
+  .cheat-table td:nth-child(2) {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: #444;
+  }
+  .cheat-table td:nth-child(3) { color: var(--text-secondary); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--accent);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 13px;
+  }
+  .footer strong { color: white; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">📘 Student Notes</div>
+    <h1>Excel <span>Formulas</span><br>Complete Guide</h1>
+    <p>Sabhi important Excel formulas ek jagah — categories ke saath, syntax aur description ke saath. Students ke liye specially prepared.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">50</div><div class="stat-label">Total Formulas</div></div>
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Categories</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free Notes</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <a class="nav-pill" href="#math"><span class="dot" style="background:#2B2D42"></span>Math</a>
+    <a class="nav-pill" href="#count"><span class="dot" style="background:#A4133C"></span>Count</a>
+    <a class="nav-pill" href="#lookup"><span class="dot" style="background:#1D4ED8"></span>Lookup</a>
+    <a class="nav-pill" href="#logic"><span class="dot" style="background:#C2410C"></span>Logical</a>
+    <a class="nav-pill" href="#finance"><span class="dot" style="background:#15803D"></span>Finance</a>
+    <a class="nav-pill" href="#text"><span class="dot" style="background:#7E22CE"></span>Text</a>
+    <a class="nav-pill" href="#date"><span class="dot" style="background:#B45309"></span>Date &amp; Time</a>
+    <a class="nav-pill" href="#db"><span class="dot" style="background:#0369A1"></span>Database</a>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ═══ 1. MATH & STATISTICAL ═══ -->
+  <div class="section" id="math">
+    <div class="section-header">
+      <div class="section-icon" style="background:#EDF2F4;">🔢</div>
+      <div class="section-title">Math &amp; Statistical</div>
+      <div class="section-count">8 Formulas</div>
+    </div>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#01</div>
+            <div class="formula-name">MIN</div>
+            <span class="formula-tag" style="background:var(--tag-math);color:var(--tag-math-t)">Math</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=MIN(Number1, Number2, ...)</div>
+            <div class="formula-desc">Kisi range mein se <strong>sabse chota (minimum) number</strong> dhundta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#02</div>
+            <div class="formula-name">MAX</div>
+            <span class="formula-tag" style="background:var(--tag-math);color:var(--tag-math-t)">Math</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=MAX(Number1, Number2, ...)</div>
+            <div class="formula-desc">Kisi range mein se <strong>sabse bada (maximum) number</strong> dhundta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#03</div>
+            <div class="formula-name">SUM</div>
+            <span class="formula-tag" style="background:var(--tag-math);color:var(--tag-math-t)">Math</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=SUM(range)</div>
+            <div class="formula-desc">Select ki gayi range ke <strong>sabhi numbers ka total</strong> karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#04</div>
+            <div class="formula-name">SUMIF</div>
+            <span class="formula-tag" style="background:var(--tag-math);color:var(--tag-math-t)">Math</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=SUMIF(range, criteria, [sum_range])</div>
+            <div class="formula-desc"><strong>Condition ke basis par</strong> sirf un numbers ko add karta hai jo criteria se match karein.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#05</div>
+            <div class="formula-name">SUMIFS</div>
+            <span class="formula-tag" style="background:var(--tag-math);color:var(--tag-math-t)">Math</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=SUMIFS(sum_range, criteria_range1, criteria1, criteria_range2, criteria2, ...)</div>
+            <div class="formula-desc"><strong>Multiple conditions</strong> ke basis par numbers ko add karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#06</div>
+            <div class="formula-name">ROUND</div>
+            <span class="formula-tag" style="background:var(--tag-math);color:var(--tag-math-t)">Math</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=ROUND(number, num_digits)</div>
+            <div class="formula-desc">Number ko <strong>specified decimal places tak round</strong> karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#07</div>
+            <div class="formula-name">ROUNDDOWN</div>
+            <span class="formula-tag" style="background:var(--tag-math);color:var(--tag-math-t)">Math</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=ROUNDDOWN(number, num_digits)</div>
+            <div class="formula-desc">Number ko <strong>zero ki taraf neeche round</strong> karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#08</div>
+            <div class="formula-name">ROUNDUP</div>
+            <span class="formula-tag" style="background:var(--tag-math);color:var(--tag-math-t)">Math</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=ROUNDUP(number, num_digits)</div>
+            <div class="formula-desc">Number ko <strong>zero se door upar round</strong> karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ 2. COUNT ═══ -->
+  <div class="section" id="count">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF0F3;">🔢</div>
+      <div class="section-title">Count Functions</div>
+      <div class="section-count">5 Formulas</div>
+    </div>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#09</div>
+            <div class="formula-name">COUNT</div>
+            <span class="formula-tag" style="background:var(--tag-count);color:var(--tag-count-t)">Count</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=COUNT(value1, value2, ...)</div>
+            <div class="formula-desc">Range mein <strong>sirf numeric values wale cells count</strong> karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#10</div>
+            <div class="formula-name">COUNTIF</div>
+            <span class="formula-tag" style="background:var(--tag-count);color:var(--tag-count-t)">Count</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=COUNTIF(range, criteria)</div>
+            <div class="formula-desc"><strong>Ek condition</strong> ke hisaab se cells count karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#11</div>
+            <div class="formula-name">COUNTIFS</div>
+            <span class="formula-tag" style="background:var(--tag-count);color:var(--tag-count-t)">Count</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=COUNTIFS(criteria_range1, criteria1, criteria_range2, criteria2, ...)</div>
+            <div class="formula-desc"><strong>Multiple conditions</strong> ke hisaab se cells count karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#12</div>
+            <div class="formula-name">COUNTA</div>
+            <span class="formula-tag" style="background:var(--tag-count);color:var(--tag-count-t)">Count</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=COUNTA(value1, value2, ...)</div>
+            <div class="formula-desc">Range mein <strong>non-empty sabhi cells count</strong> karta hai (text + numbers dono).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#13</div>
+            <div class="formula-name">COUNTBLANK</div>
+            <span class="formula-tag" style="background:var(--tag-count);color:var(--tag-count-t)">Count</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=COUNTBLANK(range)</div>
+            <div class="formula-desc">Range mein <strong>khaali (empty) cells count</strong> karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ 3. LOOKUP ═══ -->
+  <div class="section" id="lookup">
+    <div class="section-header">
+      <div class="section-icon" style="background:#EFF6FF;">🔍</div>
+      <div class="section-title">Lookup Functions</div>
+      <div class="section-count">3 Formulas</div>
+    </div>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#14</div>
+            <div class="formula-name">VLOOKUP</div>
+            <span class="formula-tag" style="background:var(--tag-lookup);color:var(--tag-lookup-t)">Lookup</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</div>
+            <div class="formula-desc"><strong>Vertically (column mein)</strong> kisi value ko table mein dhundta hai aur corresponding value return karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#15</div>
+            <div class="formula-name">HLOOKUP</div>
+            <span class="formula-tag" style="background:var(--tag-lookup);color:var(--tag-lookup-t)">Lookup</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=HLOOKUP(lookup_value, table_area, row_index_num, [range_lookup])</div>
+            <div class="formula-desc"><strong>Horizontally (row mein)</strong> kisi value ko table mein dhundta hai aur corresponding value return karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#16</div>
+            <div class="formula-name">INDEX-MATCH</div>
+            <span class="formula-tag" style="background:var(--tag-lookup);color:var(--tag-lookup-t)">Lookup</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=INDEX(area, row_number, [col_number])</div>
+            <div class="formula-desc">INDEX aur MATCH ka combination — <strong>VLOOKUP se zyada powerful</strong>. Kisi bhi direction mein value dhundh sakta hai. MATCH row/column number dhundta hai, INDEX value return karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="tip-box">
+      <div class="tip-icon">💡</div>
+      <div class="tip-text"><strong>Pro Tip:</strong> VLOOKUP sirf left-se-right kaam karta hai. Agar reverse dhundhna ho toh INDEX-MATCH use karein — ye zyada flexible hai!</div>
+    </div>
+  </div>
+
+  <!-- ═══ 4. LOGICAL ═══ -->
+  <div class="section" id="logic">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF7ED;">⚡</div>
+      <div class="section-title">Logical Functions</div>
+      <div class="section-count">3 Formulas</div>
+    </div>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#17</div>
+            <div class="formula-name">AND</div>
+            <span class="formula-tag" style="background:var(--tag-logic);color:var(--tag-logic-t)">Logical</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=AND(logic1, logic2, ...)</div>
+            <div class="formula-desc"><strong>Tabhi TRUE return karta hai</strong> jab sabhi conditions TRUE hon. Ek bhi FALSE ho toh FALSE.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#18</div>
+            <div class="formula-name">OR</div>
+            <span class="formula-tag" style="background:var(--tag-logic);color:var(--tag-logic-t)">Logical</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=OR(logic1, logic2, ...)</div>
+            <div class="formula-desc"><strong>Koi ek bhi condition TRUE ho toh TRUE</strong> return karta hai. Sabhi FALSE hon toh FALSE.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#19</div>
+            <div class="formula-name">NOT</div>
+            <span class="formula-tag" style="background:var(--tag-logic);color:var(--tag-logic-t)">Logical</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=NOT(logical)</div>
+            <div class="formula-desc">Value ko <strong>ulta kar deta hai</strong> — TRUE ko FALSE aur FALSE ko TRUE.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ 5. FINANCIAL ═══ -->
+  <div class="section" id="finance">
+    <div class="section-header">
+      <div class="section-icon" style="background:#F0FDF4;">💰</div>
+      <div class="section-title">Financial Functions</div>
+      <div class="section-count">3 Formulas</div>
+    </div>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#20</div>
+            <div class="formula-name">PMT</div>
+            <span class="formula-tag" style="background:var(--tag-finance);color:var(--tag-finance-t)">Finance</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=-PMT(Rate/12, Time_period*12, Loan_amount)</div>
+            <div class="formula-desc"><strong>Per Month Instalment</strong> calculate karta hai. Loan lene par har mahine kitna dena hoga. Negative sign isliye kyunki ye cash outflow hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#21</div>
+            <div class="formula-name">IPMT</div>
+            <span class="formula-tag" style="background:var(--tag-finance);color:var(--tag-finance-t)">Finance</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=-IPMT(Rate/12, Installment_no, Time*12, Loan_amount)</div>
+            <div class="formula-desc"><strong>Interest Payment</strong> — Kisi specific installment mein kitna <strong>sirf interest</strong> pay kiya ja raha hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#22</div>
+            <div class="formula-name">PPMT</div>
+            <span class="formula-tag" style="background:var(--tag-finance);color:var(--tag-finance-t)">Finance</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=-PPMT(Rate/12, Total_installments, Time*12, Loan_amount)</div>
+            <div class="formula-desc"><strong>Principal Payment</strong> — Kisi installment mein kitna <strong>actual loan amount</strong> wapas ho raha hai.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="tip-box">
+      <div class="tip-icon">💡</div>
+      <div class="tip-text"><strong>Yaad rakhein:</strong> PMT = IPMT + PPMT. Matlab har installment mein kuch hissa interest ka hota hai aur kuch principal ka. Shuruat mein interest zyada hota hai, baad mein principal.</div>
+    </div>
+  </div>
+
+  <!-- ═══ 6. TEXT ═══ -->
+  <div class="section" id="text">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FAF5FF;">📝</div>
+      <div class="section-title">Text Functions</div>
+      <div class="section-count">14 Formulas</div>
+    </div>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#23</div>
+            <div class="formula-name">LEFT</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Text</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=LEFT(text, num_chars)</div>
+            <div class="formula-desc">Text ke <strong>left side se characters extract</strong> karta hai. Jitne characters chahiye woh specify karein.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#24</div>
+            <div class="formula-name">RIGHT</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Text</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=RIGHT(text, num_chars)</div>
+            <div class="formula-desc">Text ke <strong>right side se characters extract</strong> karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#25</div>
+            <div class="formula-name">MID</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Text</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=MID(text, start_position, num_chars)</div>
+            <div class="formula-desc">Text ke <strong>beech (middle) se characters extract</strong> karta hai. Start position aur kitne characters chahiye woh batao.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#26</div>
+            <div class="formula-name">TRIM</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Text</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=TRIM(text)</div>
+            <div class="formula-desc">Words ke beech ke <strong>extra spaces hatata hai</strong>. Sirf single space rakhta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#27</div>
+            <div class="formula-name">CONCATENATE</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Text</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=CONCATENATE(text1, text2, ...)</div>
+            <div class="formula-desc">Alag alag cells ke <strong>text ko jodta (merge) karta hai</strong> ek cell mein. Shortcut: &amp; operator bhi use kar sakte hain.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#28</div>
+            <div class="formula-name">SUBSTITUTE</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Text</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=SUBSTITUTE(text, old_text, new_text)</div>
+            <div class="formula-desc">Text mein se <strong>ek word/phrase ko doosre se replace</strong> karta hai. Case-sensitive hota hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#29</div>
+            <div class="formula-name">UPPER</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Text</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=UPPER(text)</div>
+            <div class="formula-desc">Saare letters ko <strong>CAPITAL (uppercase)</strong> mein convert karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#30</div>
+            <div class="formula-name">LOWER</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Text</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=LOWER(text)</div>
+            <div class="formula-desc">Saare letters ko <strong>small (lowercase)</strong> mein convert karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#31</div>
+            <div class="formula-name">PROPER</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Text</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=PROPER(text)</div>
+            <div class="formula-desc">Har word ka <strong>pehla letter capital</strong> karta hai. Jaise "hello world" → "Hello World".</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#32</div>
+            <div class="formula-name">TEXT</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Text</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=TEXT(value, format_text)</div>
+            <div class="formula-desc">Number ko <strong>specific format mein text</strong> mein convert karta hai. Jaise currency ya date format.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#33</div>
+            <div class="formula-name">PRODUCT</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Math</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=PRODUCT(number1, number2, ...)</div>
+            <div class="formula-desc">Sabhi numbers ko <strong>multiply (곱셈) karta hai</strong>. SUM jaisa hai par multiplication ke liye.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#34</div>
+            <div class="formula-name">POWER</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Math</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=POWER(number, power)</div>
+            <div class="formula-desc">Number ki <strong>power/exponent calculate</strong> karta hai. Jaise 2⁶ = 64.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#35</div>
+            <div class="formula-name">LARGE</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Statistical</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=LARGE(array, k)</div>
+            <div class="formula-desc">Table mein se <strong>k-va largest number</strong> dhundta hai. Jaise 2nd largest, 3rd largest.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#36</div>
+            <div class="formula-name">SMALL</div>
+            <span class="formula-tag" style="background:var(--tag-text);color:var(--tag-text-t)">Statistical</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=SMALL(array, k)</div>
+            <div class="formula-desc">Table mein se <strong>k-va smallest number</strong> dhundta hai. Jaise 2nd smallest, 3rd smallest.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ 7. DATE & TIME ═══ -->
+  <div class="section" id="date">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF8F0;">📅</div>
+      <div class="section-title">Date &amp; Time Functions</div>
+      <div class="section-count">10 Formulas</div>
+    </div>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#37</div>
+            <div class="formula-name">DATE</div>
+            <span class="formula-tag" style="background:var(--tag-date);color:var(--tag-date-t)">Date</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=DATE(Year, Month, Day)</div>
+            <div class="formula-desc">Teen alag values (year, month, day) se <strong>ek complete date</strong> banata hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#38</div>
+            <div class="formula-name">TODAY</div>
+            <span class="formula-tag" style="background:var(--tag-date);color:var(--tag-date-t)">Date</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=TODAY()</div>
+            <div class="formula-desc"><strong>Aaj ki date automatically</strong> show karta hai. Har baar file open karne par update hota hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#39</div>
+            <div class="formula-name">NOW</div>
+            <span class="formula-tag" style="background:var(--tag-date);color:var(--tag-date-t)">Date</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=NOW()</div>
+            <div class="formula-desc"><strong>Aaj ki date aur current time</strong> dono saath show karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#40</div>
+            <div class="formula-name">DATEDIF</div>
+            <span class="formula-tag" style="background:var(--tag-date);color:var(--tag-date-t)">Date</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=DATEDIF(DOB, TODAY(), "Y/M/D")</div>
+            <div class="formula-desc">Do dates ke beech ka <strong>difference calculate</strong> karta hai — years, months, ya days mein. Age calculate karne ke liye perfect!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#41</div>
+            <div class="formula-name">YEAR</div>
+            <span class="formula-tag" style="background:var(--tag-date);color:var(--tag-date-t)">Date</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=YEAR(serial_number)</div>
+            <div class="formula-desc">Kisi date se sirf <strong>year (saal) extract</strong> karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#42</div>
+            <div class="formula-name">MONTH</div>
+            <span class="formula-tag" style="background:var(--tag-date);color:var(--tag-date-t)">Date</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=MONTH(serial_number)</div>
+            <div class="formula-desc">Kisi date se sirf <strong>month (mahina) number</strong> return karta hai (1–12).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#43</div>
+            <div class="formula-name">DAY</div>
+            <span class="formula-tag" style="background:var(--tag-date);color:var(--tag-date-t)">Date</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=DAY(serial_number)</div>
+            <div class="formula-desc">Kisi date se sirf <strong>din (day) number</strong> return karta hai (1–31).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#44</div>
+            <div class="formula-name">TIME</div>
+            <span class="formula-tag" style="background:var(--tag-date);color:var(--tag-date-t)">Time</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=TIME(hour, minute, second)</div>
+            <div class="formula-desc">Teen values se <strong>ek time value banata</strong> hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#45</div>
+            <div class="formula-name">HOUR</div>
+            <span class="formula-tag" style="background:var(--tag-date);color:var(--tag-date-t)">Time</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=HOUR(serial_number)</div>
+            <div class="formula-desc">Kisi time value se sirf <strong>ghante (hour)</strong> extract karta hai (0–23).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#46</div>
+            <div class="formula-name">MINUTE</div>
+            <span class="formula-tag" style="background:var(--tag-date);color:var(--tag-date-t)">Time</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=MINUTE(serial_number)</div>
+            <div class="formula-desc">Kisi time value se sirf <strong>minute</strong> extract karta hai (0–59).</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ 8. DATABASE ═══ -->
+  <div class="section" id="db">
+    <div class="section-header">
+      <div class="section-icon" style="background:#F0F9FF;">🗄️</div>
+      <div class="section-title">Database (D) Functions</div>
+      <div class="section-count">4 Formulas</div>
+    </div>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#47</div>
+            <div class="formula-name">DSUM</div>
+            <span class="formula-tag" style="background:var(--tag-db);color:var(--tag-db-t)">Database</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=DSUM(database, field, criteria)</div>
+            <div class="formula-desc">Database mein criteria se match karne wale records ke <strong>numbers ka total</strong> karta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#48</div>
+            <div class="formula-name">DAVERAGE</div>
+            <span class="formula-tag" style="background:var(--tag-db);color:var(--tag-db-t)">Database</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=DAVERAGE(database, field, criteria)</div>
+            <div class="formula-desc">Database mein criteria se match karne wale records ka <strong>average</strong> nikalta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#49</div>
+            <div class="formula-name">DMIN</div>
+            <span class="formula-tag" style="background:var(--tag-db);color:var(--tag-db-t)">Database</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=DMIN(database, field, criteria)</div>
+            <div class="formula-desc">Database mein criteria se match karne wale records mein se <strong>minimum value</strong> dhundta hai.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-inner">
+          <div class="formula-name-block">
+            <div class="formula-num">#50</div>
+            <div class="formula-name">DMAX</div>
+            <span class="formula-tag" style="background:var(--tag-db);color:var(--tag-db-t)">Database</span>
+          </div>
+          <div class="formula-right">
+            <div class="formula-syntax">=DMAX(database, field, criteria)</div>
+            <div class="formula-desc">Database mein criteria se match karne wale records mein se <strong>maximum value</strong> dhundta hai.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="tip-box">
+      <div class="tip-icon">💡</div>
+      <div class="tip-text"><strong>D-Functions ke 3 parts:</strong> (1) <strong>Database</strong> = poori table range, (2) <strong>Field</strong> = column name jis par calculation karni hai, (3) <strong>Criteria</strong> = condition range (header + condition wali cells).</div>
+    </div>
+  </div>
+
+  <!-- ═══ QUICK REFERENCE TABLE ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#F7F6F2;">⚡</div>
+      <div class="section-title">Quick Reference — Sabhi 50 Formulas</div>
+    </div>
+    <table class="cheat-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th style="width:160px">Formula</th>
+          <th>Kya karta hai</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>MIN</td><td>Sabse chota number dhundta hai</td></tr>
+        <tr><td>2</td><td>MAX</td><td>Sabse bada number dhundta hai</td></tr>
+        <tr><td>3</td><td>SUM</td><td>Numbers ka total</td></tr>
+        <tr><td>4</td><td>SUMIF</td><td>Condition ke saath total</td></tr>
+        <tr><td>5</td><td>SUMIFS</td><td>Multiple conditions ke saath total</td></tr>
+        <tr><td>6</td><td>ROUND</td><td>Number round karta hai</td></tr>
+        <tr><td>7</td><td>ROUNDDOWN</td><td>Neeche ki taraf round</td></tr>
+        <tr><td>8</td><td>ROUNDUP</td><td>Upar ki taraf round</td></tr>
+        <tr><td>9</td><td>COUNT</td><td>Number cells count</td></tr>
+        <tr><td>10</td><td>COUNTIF</td><td>Condition ke saath count</td></tr>
+        <tr><td>11</td><td>COUNTIFS</td><td>Multiple conditions ke saath count</td></tr>
+        <tr><td>12</td><td>COUNTA</td><td>Non-empty cells count</td></tr>
+        <tr><td>13</td><td>COUNTBLANK</td><td>Khaali cells count</td></tr>
+        <tr><td>14</td><td>VLOOKUP</td><td>Column mein value dhundta hai</td></tr>
+        <tr><td>15</td><td>HLOOKUP</td><td>Row mein value dhundta hai</td></tr>
+        <tr><td>16</td><td>INDEX-MATCH</td><td>Advanced lookup</td></tr>
+        <tr><td>17</td><td>AND</td><td>Sabhi conditions TRUE ho toh TRUE</td></tr>
+        <tr><td>18</td><td>OR</td><td>Koi ek TRUE ho toh TRUE</td></tr>
+        <tr><td>19</td><td>NOT</td><td>Value ulti karta hai</td></tr>
+        <tr><td>20</td><td>PMT</td><td>Monthly loan instalment</td></tr>
+        <tr><td>21</td><td>IPMT</td><td>Interest payment</td></tr>
+        <tr><td>22</td><td>PPMT</td><td>Principal payment</td></tr>
+        <tr><td>23</td><td>LEFT</td><td>Left se characters</td></tr>
+        <tr><td>24</td><td>RIGHT</td><td>Right se characters</td></tr>
+        <tr><td>25</td><td>MID</td><td>Middle se characters</td></tr>
+        <tr><td>26</td><td>TRIM</td><td>Extra spaces hatata hai</td></tr>
+        <tr><td>27</td><td>CONCATENATE</td><td>Text jodata hai</td></tr>
+        <tr><td>28</td><td>SUBSTITUTE</td><td>Text replace karta hai</td></tr>
+        <tr><td>29</td><td>UPPER</td><td>CAPITAL letters</td></tr>
+        <tr><td>30</td><td>LOWER</td><td>small letters</td></tr>
+        <tr><td>31</td><td>PROPER</td><td>Proper Case</td></tr>
+        <tr><td>32</td><td>TEXT</td><td>Number ko text format mein</td></tr>
+        <tr><td>33</td><td>PRODUCT</td><td>Multiplication</td></tr>
+        <tr><td>34</td><td>POWER</td><td>Power/exponent</td></tr>
+        <tr><td>35</td><td>LARGE</td><td>Nth largest number</td></tr>
+        <tr><td>36</td><td>SMALL</td><td>Nth smallest number</td></tr>
+        <tr><td>37</td><td>DATE</td><td>Date banata hai</td></tr>
+        <tr><td>38</td><td>TODAY</td><td>Aaj ki date</td></tr>
+        <tr><td>39</td><td>NOW</td><td>Aaj ki date + time</td></tr>
+        <tr><td>40</td><td>DATEDIF</td><td>Date difference / age</td></tr>
+        <tr><td>41</td><td>YEAR</td><td>Saal extract karta hai</td></tr>
+        <tr><td>42</td><td>MONTH</td><td>Mahina extract karta hai</td></tr>
+        <tr><td>43</td><td>DAY</td><td>Din extract karta hai</td></tr>
+        <tr><td>44</td><td>TIME</td><td>Time banata hai</td></tr>
+        <tr><td>45</td><td>HOUR</td><td>Ghante extract karta hai</td></tr>
+        <tr><td>46</td><td>MINUTE</td><td>Minute extract karta hai</td></tr>
+        <tr><td>47</td><td>DSUM</td><td>Database sum with criteria</td></tr>
+        <tr><td>48</td><td>DAVERAGE</td><td>Database average with criteria</td></tr>
+        <tr><td>49</td><td>DMIN</td><td>Database minimum</td></tr>
+        <tr><td>50</td><td>DMAX</td><td>Database maximum</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>📘 <strong>Excel Formula Notes</strong> — Students ke liye freely available</p>
+  <p style="margin-top:6px">Total: <strong>50 Formulas</strong> · 8 Categories · Handwritten se Digital</p>
+</div>
+
+</body>
+</html>
