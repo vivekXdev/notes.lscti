@@ -1,12 +1,12 @@
-notepad https://drive.google.com/file/d/1lIp9qlbs0LdYAgPJhMP0mALL1VCEXMzD
-wordpad https://drive.google.com/file/d/15JEQCYwXzAmYrqx1w_Rt-mdRIXhPe1sx
-paint   https://drive.google.com/file/d/1fGqXGIIzU7-_jA2vljHIoszTgKLRNCKj
-excel   https://drive.google.com/file/d/1Le031wqFmcTG6ZoCZgaQNUy_GxOxrutB
-tally   https://drive.google.com/file/d/1w9bX9J5O0vmWwMR4y0tEkJOTADEP9RVW
-python-cheetsheet   https://drive.google.com/file/d/1XNjOf3U2auGM-KZLCurzHW55WQJ_d8w5
-charts              https://drive.google.com/file/d/13Cly6RnEnI4zZNdvN3hJUCGvAXS7nZdt
-data analysis & statictics https://drive.google.com/file/d/1lSgyQ46EWA_GGMe0yMoWcHGUSwnmuyQv
-c                          https://drive.google.com/file/d/1dhNVE6BduoNnyHe0qxxzivvoUnlNfbrn
+notepad                     https://drive.google.com/file/d/1lIp9qlbs0LdYAgPJhMP0mALL1VCEXMzD
+wordpad                     https://drive.google.com/file/d/15JEQCYwXzAmYrqx1w_Rt-mdRIXhPe1sx
+paint                       https://drive.google.com/file/d/1fGqXGIIzU7-_jA2vljHIoszTgKLRNCKj
+excel                       https://drive.google.com/file/d/1Le031wqFmcTG6ZoCZgaQNUy_GxOxrutB
+tally                       https://drive.google.com/file/d/1w9bX9J5O0vmWwMR4y0tEkJOTADEP9RVW
+python-cheetsheet           https://drive.google.com/file/d/1XNjOf3U2auGM-KZLCurzHW55WQJ_d8w5
+charts                      https://drive.google.com/file/d/13Cly6RnEnI4zZNdvN3hJUCGvAXS7nZdt
+data analysis & statictics  https://drive.google.com/file/d/1lSgyQ46EWA_GGMe0yMoWcHGUSwnmuyQv
+c                           https://drive.google.com/file/d/1dhNVE6BduoNnyHe0qxxzivvoUnlNfbrn
 html                        https://drive.google.com/file/d/1dxEdZ-GSxj2Fph7fiv6bs5llApWpPjk7
 html short                  https://drive.google.com/file/d/14Bcj3rWAoBIkDjBFfkvdVZZ9XTh4dJa1
 dos                         https://drive.google.com/file/d/1rL1F8w-XBpeoPdjXCQ1Qynq3q1jhkPXy
@@ -16,5 +16,26 @@ python notbook              https://drive.google.com/file/d/1cbBKTrRdUzDBYxxuHLS
 ms access                   https://drive.google.com/file/d/1U1sHq05igI3CgIu4bOdbOicHtC5jgXJI
 word                        https://drive.google.com/file/d/1cPWQ3o0532sfy-3KQ-NYAaV11BAVR5jD
 power point                 https://drive.google.com/file/d/1sggEMZHNcmDicfHLF8upy277TyIImrSH
+computer fundamental        https://drive.google.com/file/d/1cqSzFKIYBoe9sWhA_2J2L_QdePW7KzFs
 
-                 
+
+notepad                    https://drive.google.com/uc?export=download&id=1lIp9qlbs0LdYAgPJhMP0mALL1VCEXMzD
+wordpad                    https://drive.google.com/uc?export=download&id=15JEQCYwXzAmYrqx1w_Rt-mdRIXhPe1sx
+paint                      https://drive.google.com/uc?export=download&id=1fGqXGIIzU7-_jA2vljHIoszTgKLRNCKj
+excel                      https://drive.google.com/uc?export=download&id=1Le031wqFmcTG6ZoCZgaQNUy_GxOxrutB
+tally                      https://drive.google.com/uc?export=download&id=1w9bX9J5O0vmWwMR4y0tEkJOTADEP9RVW
+python-cheetsheet          https://drive.google.com/uc?export=download&id=1XNjOf3U2auGM-KZLCurzHW55WQJ_d8w5
+charts                     https://drive.google.com/uc?export=download&id=13Cly6RnEnI4zZNdvN3hJUCGvAXS7nZdt
+data analysis & statictics https://drive.google.com/uc?export=download&id=1lSgyQ46EWA_GGMe0yMoWcHGUSwnmuyQv
+c                          https://drive.google.com/uc?export=download&id=1dhNVE6BduoNnyHe0qxxzivvoUnlNfbrn
+html                       https://drive.google.com/uc?export=download&id=1dxEdZ-GSxj2Fph7fiv6bs5llApWpPjk7
+html short                 https://drive.google.com/uc?export=download&id=14Bcj3rWAoBIkDjBFfkvdVZZ9XTh4dJa1
+dos                        https://drive.google.com/uc?export=download&id=1rL1F8w-XBpeoPdjXCQ1Qynq3q1jhkPXy
+css short                  https://drive.google.com/uc?export=download&id=120wz1t1vdpHsmhc6cSTImSOXLHxFU5JQ
+git                        https://drive.google.com/uc?export=download&id=1kd1CZ8OKclingQ_N4l6Y2-x4Uk5Pvp10
+python notbook             https://drive.google.com/uc?export=download&id=1cbBKTrRdUzDBYxxuHLSSbV06GaNfkC6r
+ms access                  https://drive.google.com/uc?export=download&id=1U1sHq05igI3CgIu4bOdbOicHtC5jgXJI
+word                       https://drive.google.com/uc?export=download&id=1cPWQ3o0532sfy-3KQ-NYAaV11BAVR5jD
+power point                https://drive.google.com/uc?export=download&id=1sggEMZHNcmDicfHLF8upy277TyIImrSH
+computer fundamental       https://drive.google.com/uc?export=download&id=1cqSzFKIYBoe9sWhA_2J2L_QdePW7KzFs
+                  

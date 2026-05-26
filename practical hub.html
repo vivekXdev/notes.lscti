@@ -1,263 +1,830 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>LSCTI | Practical Classes Hub</title>
   <link rel="shortcut icon" href="../images/favicon2.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;}
-    :root{
-      --primary:#1e293b;--secondary:#3b82f6;--accent:#6dc854;
-      --bg:#f1f5f9;--white:#fff;--text:#334155;--muted:#64748b;--border:#e2e8f0;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    html,body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+
+    :root {
+      --primary: #1e293b;
+      --secondary: #3b82f6;
+      --accent: #6dc854;
+      --bg: #f1f5f9;
+      --white: #fff;
+      --text: #334155;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    html,
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
 
     /* NAV */
-    nav{background:var(--primary);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.18);}
-    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-    .nav-logo img{height:32px;}
-    .nav-logo span{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.2px;}
-    .nav-links{display:flex;align-items:center;gap:6px;}
-    .nav-links a{color:#94a3b8;font-size:13px;font-weight:500;text-decoration:none;padding:6px 12px;border-radius:7px;transition:all .18s;}
-    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08);}
-    .nav-links a.active{color:#fff;background:rgba(109,200,84,.15);color:var(--accent);}
+    nav {
+      background: var(--primary);
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .18);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 32px;
+    }
+
+    .nav-logo span {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      color: #94a3b8;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 7px;
+      transition: all .18s;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .nav-links a.active {
+      color: #fff;
+      background: rgba(109, 200, 84, .15);
+      color: var(--accent);
+    }
 
     /* HERO */
-    .hero{background:linear-gradient(135deg,var(--primary) 0%,#1a3a5c 60%,#0f2d1f 100%);padding:52px 28px 44px;text-align:center;position:relative;overflow:hidden;}
-    .hero::before{content:'';position:absolute;top:-60px;left:-60px;width:260px;height:260px;background:rgba(109,200,84,.06);border-radius:50%;}
-    .hero::after{content:'';position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;background:rgba(59,130,246,.07);border-radius:50%;}
-    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(109,200,84,.12);border:1px solid rgba(109,200,84,.25);border-radius:50px;padding:5px 14px;font-size:12px;color:var(--accent);font-weight:600;margin-bottom:18px;animation:fadeUp .4s ease both;}
-    .hero h1{font-size:36px;font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1.2;margin-bottom:12px;animation:fadeUp .4s .05s ease both;}
-    .hero h1 span{color:var(--accent);}
-    .hero p{font-size:15px;color:#94a3b8;max-width:520px;margin:0 auto 28px;line-height:1.7;animation:fadeUp .4s .1s ease both;}
-    .hero-stats{display:flex;align-items:center;justify-content:center;gap:32px;animation:fadeUp .4s .15s ease both;}
-    .hstat{text-align:center;}
-    .hstat .num{font-size:26px;font-weight:800;color:#fff;line-height:1;}
-    .hstat .lbl{font-size:12px;color:#64748b;margin-top:3px;}
-    .hdiv{width:1px;height:36px;background:#2d3f55;}
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #1a3a5c 60%, #0f2d1f 100%);
+      padding: 52px 28px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 260px;
+      height: 260px;
+      background: rgba(109, 200, 84, .06);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      background: rgba(59, 130, 246, .07);
+      border-radius: 50%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(109, 200, 84, .12);
+      border: 1px solid rgba(109, 200, 84, .25);
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 18px;
+      animation: fadeUp .4s ease both;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -.5px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      animation: fadeUp .4s .05s ease both;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: #94a3b8;
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+      animation: fadeUp .4s .1s ease both;
+    }
+
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      animation: fadeUp .4s .15s ease both;
+    }
+
+    .hstat {
+      text-align: center;
+    }
+
+    .hstat .num {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .hstat .lbl {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 3px;
+    }
+
+    .hdiv {
+      width: 1px;
+      height: 36px;
+      background: #2d3f55;
+    }
 
     /* SECTION */
-    .section{max-width:1100px;margin:0 auto;padding:36px 20px;}
-    .sec-header{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
-    .sec-title{font-size:18px;font-weight:700;color:var(--primary);}
-    .sec-line{flex:1;height:1px;background:var(--border);}
-    .sec-badge{font-size:11px;font-weight:600;background:var(--accent);color:#fff;padding:3px 10px;border-radius:50px;}
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 36px 20px;
+    }
+
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .sec-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .sec-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .sec-badge {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--accent);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 50px;
+    }
 
     /* CARDS GRID */
-    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
 
     /* SUBJECT CARD */
-    .sub-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px 20px 18px;text-decoration:none;color:inherit;transition:all .22s;position:relative;overflow:hidden;display:block;animation:fadeUp .4s ease both;}
-    .sub-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .22s;}
-    .sub-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.1);border-color:transparent;}
-    .sub-card:hover::before{opacity:1;}
+    .sub-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 20px 18px;
+      text-decoration: none;
+      color: inherit;
+      transition: all .22s;
+      position: relative;
+      overflow: hidden;
+      display: block;
+      animation: fadeUp .4s ease both;
+    }
+
+    .sub-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .22s;
+    }
+
+    .sub-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .1);
+      border-color: transparent;
+    }
+
+    .sub-card:hover::before {
+      opacity: 1;
+    }
 
     /* per-subject colors */
-    .c-excel .sub-card-icon{background:linear-gradient(135deg,#166534,#22c55e);}
-    .c-excel .sub-card:hover{border-color:#22c55e;}
-    .c-excel .sub-card::before{background:linear-gradient(135deg,rgba(34,197,94,.04),rgba(22,101,52,.06));}
-    .c-excel .tag{background:#dcfce7;color:#15803d;}
-    .c-excel .prog-fill{background:linear-gradient(90deg,#166534,#22c55e);}
+    .c-excel .sub-card-icon {
+      background: linear-gradient(135deg, #166534, #22c55e);
+    }
 
-    .c-word .sub-card-icon{background:linear-gradient(135deg,#1e3f7a,#2b579a);}
-    .c-word .sub-card:hover{border-color:#2b579a;}
-    .c-word .sub-card::before{background:linear-gradient(135deg,rgba(43,87,154,.04),rgba(30,63,122,.06));}
-    .c-word .tag{background:#dbeafe;color:#1d4ed8;}
-    .c-word .prog-fill{background:linear-gradient(90deg,#1e3f7a,#2b579a);}
+    .c-excel .sub-card:hover {
+      border-color: #22c55e;
+    }
 
-    .c-ppt .sub-card-icon{background:linear-gradient(135deg,#a33010,#c43e1c);}
-    .c-ppt .sub-card:hover{border-color:#c43e1c;}
-    .c-ppt .sub-card::before{background:linear-gradient(135deg,rgba(196,62,28,.04),rgba(163,48,16,.06));}
-    .c-ppt .tag{background:#fee2e2;color:#b91c1c;}
-    .c-ppt .prog-fill{background:linear-gradient(90deg,#a33010,#c43e1c);}
+    .c-excel .sub-card::before {
+      background: linear-gradient(135deg, rgba(34, 197, 94, .04), rgba(22, 101, 52, .06));
+    }
 
-    .c-notepad .sub-card-icon{background:linear-gradient(135deg,#0077b6,#00b4d8);}
-    .c-notepad .sub-card:hover{border-color:#00b4d8;}
-    .c-notepad .sub-card::before{background:linear-gradient(135deg,rgba(0,180,216,.04),rgba(0,119,182,.06));}
-    .c-notepad .tag{background:#cffafe;color:#0e7490;}
-    .c-notepad .prog-fill{background:linear-gradient(90deg,#0077b6,#00b4d8);}
+    .c-excel .tag {
+      background: #dcfce7;
+      color: #15803d;
+    }
 
-    .c-wordpad .sub-card-icon{background:linear-gradient(135deg,#5b21b6,#7c3aed);}
-    .c-wordpad .sub-card:hover{border-color:#7c3aed;}
-    .c-wordpad .sub-card::before{background:linear-gradient(135deg,rgba(124,58,237,.04),rgba(91,33,182,.06));}
-    .c-wordpad .tag{background:#ede9fe;color:#6d28d9;}
-    .c-wordpad .prog-fill{background:linear-gradient(90deg,#5b21b6,#7c3aed);}
+    .c-excel .prog-fill {
+      background: linear-gradient(90deg, #166534, #22c55e);
+    }
 
-    .c-paint .sub-card-icon{background:linear-gradient(135deg,#be185d,#ec4899);}
-    .c-paint .sub-card:hover{border-color:#ec4899;}
-    .c-paint .sub-card::before{background:linear-gradient(135deg,rgba(236,72,153,.04),rgba(190,24,93,.06));}
-    .c-paint .tag{background:#fce7f3;color:#be185d;}
-    .c-paint .prog-fill{background:linear-gradient(90deg,#be185d,#ec4899);}
+    .c-word .sub-card-icon {
+      background: linear-gradient(135deg, #1e3f7a, #2b579a);
+    }
 
-    .sub-card-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.15);}
-    .sub-card-name{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:4px;}
-    .sub-card-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:12px;}
-    .sub-card-meta{display:flex;align-items:center;gap:6px;margin-bottom:14px;flex-wrap:wrap;}
-    .tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:50px;}
-    .tag-tasks{background:#f1f5f9;color:var(--muted);}
+    .c-word .sub-card:hover {
+      border-color: #2b579a;
+    }
+
+    .c-word .sub-card::before {
+      background: linear-gradient(135deg, rgba(43, 87, 154, .04), rgba(30, 63, 122, .06));
+    }
+
+    .c-word .tag {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .c-word .prog-fill {
+      background: linear-gradient(90deg, #1e3f7a, #2b579a);
+    }
+
+    .c-ppt .sub-card-icon {
+      background: linear-gradient(135deg, #a33010, #c43e1c);
+    }
+
+    .c-ppt .sub-card:hover {
+      border-color: #c43e1c;
+    }
+
+    .c-ppt .sub-card::before {
+      background: linear-gradient(135deg, rgba(196, 62, 28, .04), rgba(163, 48, 16, .06));
+    }
+
+    .c-ppt .tag {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .c-ppt .prog-fill {
+      background: linear-gradient(90deg, #a33010, #c43e1c);
+    }
+
+    .c-notepad .sub-card-icon {
+      background: linear-gradient(135deg, #0077b6, #00b4d8);
+    }
+
+    .c-notepad .sub-card:hover {
+      border-color: #00b4d8;
+    }
+
+    .c-notepad .sub-card::before {
+      background: linear-gradient(135deg, rgba(0, 180, 216, .04), rgba(0, 119, 182, .06));
+    }
+
+    .c-notepad .tag {
+      background: #cffafe;
+      color: #0e7490;
+    }
+
+    .c-notepad .prog-fill {
+      background: linear-gradient(90deg, #0077b6, #00b4d8);
+    }
+
+    .c-wordpad .sub-card-icon {
+      background: linear-gradient(135deg, #5b21b6, #7c3aed);
+    }
+
+    .c-wordpad .sub-card:hover {
+      border-color: #7c3aed;
+    }
+
+    .c-wordpad .sub-card::before {
+      background: linear-gradient(135deg, rgba(124, 58, 237, .04), rgba(91, 33, 182, .06));
+    }
+
+    .c-wordpad .tag {
+      background: #ede9fe;
+      color: #6d28d9;
+    }
+
+    .c-wordpad .prog-fill {
+      background: linear-gradient(90deg, #5b21b6, #7c3aed);
+    }
+
+    .c-paint .sub-card-icon {
+      background: linear-gradient(135deg, #be185d, #ec4899);
+    }
+
+    .c-paint .sub-card:hover {
+      border-color: #ec4899;
+    }
+
+    .c-paint .sub-card::before {
+      background: linear-gradient(135deg, rgba(236, 72, 153, .04), rgba(190, 24, 93, .06));
+    }
+
+    .c-paint .tag {
+      background: #fce7f3;
+      color: #be185d;
+    }
+
+    .c-paint .prog-fill {
+      background: linear-gradient(90deg, #be185d, #ec4899);
+    }
+
+    .sub-card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .15);
+    }
+
+    .sub-card-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .sub-card-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .sub-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 50px;
+    }
+
+    .tag-tasks {
+      background: #f1f5f9;
+      color: var(--muted);
+    }
 
     /* mini progress */
-    .mini-prog{margin-bottom:4px;}
-    .mini-prog-bar{height:4px;background:#f1f5f9;border-radius:99px;overflow:hidden;margin-bottom:4px;}
-    .prog-fill{height:100%;border-radius:99px;width:0%;transition:width .6s ease;}
-    .mini-prog-lbl{font-size:10px;color:var(--muted);}
+    .mini-prog {
+      margin-bottom: 4px;
+    }
 
-    .open-btn{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:9px;font-size:12px;font-weight:600;border:1px solid var(--border);color:var(--muted);transition:all .18s;background:var(--bg);}
-    .sub-card:hover .open-btn{background:var(--primary);color:#fff;border-color:var(--primary);}
-    .open-btn svg{width:14px;height:14px;transition:transform .18s;}
-    .sub-card:hover .open-btn svg{transform:translateX(3px);}
+    .mini-prog-bar {
+      height: 4px;
+      background: #f1f5f9;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+
+    .prog-fill {
+      height: 100%;
+      border-radius: 99px;
+      width: 0%;
+      transition: width .6s ease;
+    }
+
+    .mini-prog-lbl {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .open-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: all .18s;
+      background: var(--bg);
+    }
+
+    .sub-card:hover .open-btn {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .open-btn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform .18s;
+    }
+
+    .sub-card:hover .open-btn svg {
+      transform: translateX(3px);
+    }
 
     /* COMING SOON CARD */
-    .soon-card{background:var(--white);border:1.5px dashed var(--border);border-radius:16px;padding:22px 20px 18px;animation:fadeUp .4s ease both;opacity:.7;}
-    .soon-icon{width:46px;height:46px;border-radius:12px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;}
-    .soon-name{font-size:15px;font-weight:700;color:var(--muted);margin-bottom:4px;}
-    .soon-desc{font-size:12px;color:#94a3b8;line-height:1.5;margin-bottom:12px;}
-    .soon-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:#94a3b8;background:#f8fafc;border:1px solid var(--border);padding:5px 12px;border-radius:8px;}
+    .soon-card {
+      background: var(--white);
+      border: 1.5px dashed var(--border);
+      border-radius: 16px;
+      padding: 22px 20px 18px;
+      animation: fadeUp .4s ease both;
+      opacity: .7;
+    }
+
+    .soon-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .soon-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .soon-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #94a3b8;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 8px;
+    }
 
     /* INFO STRIP */
-    .info-strip{background:linear-gradient(135deg,var(--primary),#1a3a5c);border-radius:14px;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px;}
-    .is-text h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;}
-    .is-text p{font-size:13px;color:#64748b;}
-    .is-btn{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:9px 18px;border-radius:9px;text-decoration:none;transition:all .18s;white-space:nowrap;}
-    .is-btn:hover{background:#5db844;transform:translateY(-1px);}
+    .info-strip {
+      background: linear-gradient(135deg, var(--primary), #1a3a5c);
+      border-radius: 14px;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
 
-    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-    .cards-grid .c-excel{animation-delay:.04s}.cards-grid .c-word{animation-delay:.08s}.cards-grid .c-ppt{animation-delay:.12s}.cards-grid .c-notepad{animation-delay:.16s}.cards-grid .c-wordpad{animation-delay:.20s}.cards-grid .c-paint{animation-delay:.24s}
-    @media(max-width:600px){.hero h1{font-size:26px;}.cards-grid{grid-template-columns:repeat(2,1fr);}.hero-stats{gap:18px;}.hstat .num{font-size:20px;}}
+    .is-text h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .is-text p {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .is-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 9px;
+      text-decoration: none;
+      transition: all .18s;
+      white-space: nowrap;
+    }
+
+    .is-btn:hover {
+      background: #5db844;
+      transform: translateY(-1px);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .cards-grid .c-excel {
+      animation-delay: .04s
+    }
+
+    .cards-grid .c-word {
+      animation-delay: .08s
+    }
+
+    .cards-grid .c-ppt {
+      animation-delay: .12s
+    }
+
+    .cards-grid .c-notepad {
+      animation-delay: .16s
+    }
+
+    .cards-grid .c-wordpad {
+      animation-delay: .20s
+    }
+
+    .cards-grid .c-paint {
+      animation-delay: .24s
+    }
+
+    @media(max-width:600px) {
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-stats {
+        gap: 18px;
+      }
+
+      .hstat .num {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="../index.html" class="nav-logo">
-    <img src="../images/logo.png" alt="LSCTI" onerror="this.style.display='none'">
-    <span>LSCTI</span>
-  </a>
-  <div class="nav-links">
-    <a href="../index.html">Home</a>
-    <a href="#" class="active">Practicals</a>
-    <a href="https://lscti.com" >Website ↗</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">🖥️ LSCTI Practical Lab</div>
-  <h1>Practical <span>Classes</span> Hub</h1>
-  <p>get all the practical task on one platform. With step by step instructions and do it yourself.</p>
-  <div class="hero-stats">
-    <div class="hstat"><div class="num">6</div><div class="lbl">Software</div></div>
-    <div class="hdiv"></div>
-    <div class="hstat"><div class="num">68</div><div class="lbl">Total Tasks</div></div>
-    <div class="hdiv"></div>
-    <div class="hstat"><div class="num">Free</div><div class="lbl">Access</div></div>
-    <div class="hdiv"></div>
-    <div class="hstat"><div class="num">Step-by-Step</div><div class="lbl">Instructions</div></div>
-  </div>
-</div>
-
-<!-- MS OFFICE SECTION -->
-<div class="section">
-  <div class="sec-header">
-    <span class="sec-title">🗂️ MS Office Suite</span>
-    <div class="sec-line"></div>
-    <span class="sec-badge">3 Subjects</span>
-  </div>
-  <div class="cards-grid">
-
-    <!-- Excel -->
-    <div class="c-excel">
-      <a href="practical/01_excel_practical.html" class="sub-card">
-        <div class="sub-card-icon">📊</div>
-        <div class="sub-card-name">MS Excel</div>
-        <div class="sub-card-desc">Charts, formulas, pivot tables, data tools aur macros ki practice karo.</div>
-        <div class="sub-card-meta">
-          <span class="tag tag-tasks">19 Tasks</span>
-          <span class="tag c-excel">Free</span>
-        </div>
-        <div class="mini-prog">
-          <div class="mini-prog-bar"><div class="prog-fill" id="prog-excel"></div></div>
-          <div class="mini-prog-lbl" id="lbl-excel">0 / 19 completed</div>
-        </div>
-        <div class="open-btn">Open Practical <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </a>
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/logo.png" alt="LSCTI" onerror="this.style.display='none'">
+      <span>LSCTI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="#" class="active">Practicals</a>
+      <a href="https://lscti.com">Website ↗</a>
     </div>
+  </nav>
 
-    <!-- Word -->
-    <div class="c-word">
-      <a href="practical/02_word practical.html" class="sub-card">
-        <div class="sub-card-icon">📝</div>
-        <div class="sub-card-name">MS Word</div>
-        <div class="sub-card-desc">Formatting, tables, mail merge, resume banana aur document design seekho.</div>
-        <div class="sub-card-meta">
-          <span class="tag tag-tasks">15 Tasks</span>
-          <span class="tag c-word">Free</span>
-        </div>
-        <div class="mini-prog">
-          <div class="mini-prog-bar"><div class="prog-fill" id="prog-word"></div></div>
-          <div class="mini-prog-lbl" id="lbl-word">0 / 15 completed</div>
-        </div>
-        <div class="open-btn">Open Practical <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </a>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">🖥️ LSCTI Practical Lab</div>
+    <h1>Practical <span>Classes</span> Hub</h1>
+    <p>get all the practical task on one platform. With step by step instructions and do it yourself.</p>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="num">6</div>
+        <div class="lbl">Software</div>
+      </div>
+      <div class="hdiv"></div>
+      <div class="hstat">
+        <div class="num">68</div>
+        <div class="lbl">Total Tasks</div>
+      </div>
+      <div class="hdiv"></div>
+      <div class="hstat">
+        <div class="num">Free</div>
+        <div class="lbl">Access</div>
+      </div>
+      <div class="hdiv"></div>
+      <div class="hstat">
+        <div class="num">Step-by-Step</div>
+        <div class="lbl">Instructions</div>
+      </div>
     </div>
-
-    <!-- PowerPoint -->
-    <div class="c-ppt">
-      <a href="practical/03_power point prac.html" class="sub-card">
-        <div class="sub-card-icon">📊</div>
-        <div class="sub-card-name">MS PowerPoint</div>
-        <div class="sub-card-desc">Slides, themes, animations, charts aur professional presentations banana seekho.</div>
-        <div class="sub-card-meta">
-          <span class="tag tag-tasks">14 Tasks</span>
-          <span class="tag c-ppt">Free</span>
-        </div>
-        <div class="mini-prog">
-          <div class="mini-prog-bar"><div class="prog-fill" id="prog-ppt"></div></div>
-          <div class="mini-prog-lbl" id="lbl-ppt">0 / 14 completed</div>
-        </div>
-        <div class="open-btn">Open Practical <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </a>
-    </div>
-
   </div>
-  
-  
-  <!-- programnig -->
 
   <!-- MS OFFICE SECTION -->
   <div class="section">
     <div class="sec-header">
-      <span class="sec-title">🗂️ Programming</span>
+      <span class="sec-title">🗂️ MS Office Suite</span>
       <div class="sec-line"></div>
-      <span class="sec-badge">1 Subject</span>
+      <span class="sec-badge">3 Subjects</span>
     </div>
     <div class="cards-grid">
-  
+
       <!-- Excel -->
       <div class="c-excel">
-        <a href="practical/04_python_practical.html" class="sub-card">
-          <div class="sub-card-icon">🐍</div>
-          <div class="sub-card-name">Python</div>
-          <div class="sub-card-desc">List,Dict,Loops,Fuctins,String,<br>Variables</div>
+        <a href="practical/01_excel_practical.html" class="sub-card">
+          <div class="sub-card-icon">📊</div>
+          <div class="sub-card-name">MS Excel</div>
+          <div class="sub-card-desc">Charts, formulas, pivot tables, data tools aur macros ki practice karo.</div>
           <div class="sub-card-meta">
-            <span class="tag tag-tasks">60 Tasks</span>
+            <span class="tag tag-tasks">19 Tasks</span>
             <span class="tag c-excel">Free</span>
           </div>
           <div class="mini-prog">
-            <div class="mini-prog-bar"><div class="prog-fill" id="prog-excel"></div></div>
-            <div class="mini-prog-lbl" id="lbl-excel">0 / 60 completed</div>
+            <div class="mini-prog-bar">
+              <div class="prog-fill" id="prog-excel"></div>
+            </div>
+            <div class="mini-prog-lbl" id="lbl-excel">0 / 19 completed</div>
           </div>
-          <div class="open-btn">Open Practical <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          <div class="open-btn">Open Practical <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></div>
         </a>
       </div>
-  
+      <!-- Excel formulas -->
+      <div class="c-excel">
+        <a href="practical/05_Excel_function.html" class="sub-card">
+          <div class="sub-card-icon">📊</div>
+          <div class="sub-card-name">Excel Formulas</div>
+          <div class="sub-card-desc">Math,Count,Lookup,Logical,Finance<br>Text,Date & Time,Database</div>
+          <div class="sub-card-meta">
+            <span class="tag tag-tasks">50 formulas</span>
+            <span class="tag c-excel">Free</span>
+          </div>
+          <div class="open-btn">Open Practical <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></div>
+        </a>
+      </div>
+
+      <!-- Word -->
+      <div class="c-word">
+        <a href="practical/02_word practical.html" class="sub-card">
+          <div class="sub-card-icon">📝</div>
+          <div class="sub-card-name">MS Word</div>
+          <div class="sub-card-desc">Formatting, tables, mail merge, resume banana aur document design seekho.</div>
+          <div class="sub-card-meta">
+            <span class="tag tag-tasks">15 Tasks</span>
+            <span class="tag c-word">Free</span>
+          </div>
+          <div class="mini-prog">
+            <div class="mini-prog-bar">
+              <div class="prog-fill" id="prog-word"></div>
+            </div>
+            <div class="mini-prog-lbl" id="lbl-word">0 / 15 completed</div>
+          </div>
+          <div class="open-btn">Open Practical <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></div>
+        </a>
+      </div>
+
+      <!-- PowerPoint -->
+      <div class="c-ppt">
+        <a href="practical/03_power point prac.html" class="sub-card">
+          <div class="sub-card-icon">📊</div>
+          <div class="sub-card-name">MS PowerPoint</div>
+          <div class="sub-card-desc">Slides, themes, animations, charts aur professional presentations banana seekho.
+          </div>
+          <div class="sub-card-meta">
+            <span class="tag tag-tasks">14 Tasks</span>
+            <span class="tag c-ppt">Free</span>
+          </div>
+          <div class="mini-prog">
+            <div class="mini-prog-bar">
+              <div class="prog-fill" id="prog-ppt"></div>
+            </div>
+            <div class="mini-prog-lbl" id="lbl-ppt">0 / 14 completed</div>
+          </div>
+          <div class="open-btn">Open Practical <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></div>
+        </a>
+      </div>
+
     </div>
-  
-  
-  <!-- WINDOWS TOOLS SECTION -->
-  <!-- <div class="sec-header" style="margin-top:36px;">
+
+
+    <!-- programnig -->
+
+    <!-- MS OFFICE SECTION -->
+    <div class="section">
+      <div class="sec-header">
+        <span class="sec-title">🗂️ Programming</span>
+        <div class="sec-line"></div>
+        <span class="sec-badge">1 Subject</span>
+      </div>
+      <div class="cards-grid">
+
+        <!-- Excel -->
+        <div class="c-excel">
+          <a href="practical/04_python_practical.html" class="sub-card">
+            <div class="sub-card-icon">🐍</div>
+            <div class="sub-card-name">Python</div>
+            <div class="sub-card-desc">List,Dict,Loops,Fuctins,String,<br>Variables</div>
+            <div class="sub-card-meta">
+              <span class="tag tag-tasks">60 Tasks</span>
+              <span class="tag c-excel">Free</span>
+            </div>
+            <div class="mini-prog">
+              <div class="mini-prog-bar">
+                <div class="prog-fill" id="prog-excel"></div>
+              </div>
+              <div class="mini-prog-lbl" id="lbl-excel">0 / 60 completed</div>
+            </div>
+            <div class="open-btn">Open Practical <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></div>
+          </a>
+        </div>
+
+      </div>
+
+
+      <!-- WINDOWS TOOLS SECTION -->
+      <!-- <div class="sec-header" style="margin-top:36px;">
     <span class="sec-title">🪟 Windows Built-in Tools</span>
     <div class="sec-line"></div>
     <span class="sec-badge">3 Subjects</span>
@@ -281,9 +848,9 @@
         <div class="open-btn">Open Practical <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
     </div> -->
-    
-    <!-- WordPad -->
-    <!-- <div class="c-wordpad">
+
+      <!-- WordPad -->
+      <!-- <div class="c-wordpad">
       <a href="practical-wordpad.html" class="sub-card">
         <div class="sub-card-icon">🖊️</div>
         <div class="sub-card-name">WordPad</div>
@@ -300,8 +867,8 @@
       </a>
     </div> -->
 
-    <!-- Paint -->
-    <!-- <div class="c-paint">
+      <!-- Paint -->
+      <!-- <div class="c-paint">
       <a href="practical-paint.html" class="sub-card">
         <div class="sub-card-icon">🎨</div>
         <div class="sub-card-name">MS Paint</div>
@@ -320,60 +887,64 @@
 
   </div> -->
 
-  <!-- COMING SOON -->
-  <div class="sec-header" style="margin-top:36px;">
-    <span class="sec-title">🔜 Coming Soon</span>
-    <div class="sec-line"></div>
-  </div>
-  <div class="cards-grid">
-    <div class="soon-card">
-      <div class="soon-icon">🧮</div>
-      <div class="soon-name">Tally Prime</div>
-      <div class="soon-desc">Company creation, vouchers, GST entries aur balance sheet practice.</div>
-      <div class="soon-badge">🕐 Coming Soon</div>
+      <!-- COMING SOON -->
+      <div class="sec-header" style="margin-top:36px;">
+        <span class="sec-title">🔜 Coming Soon</span>
+        <div class="sec-line"></div>
+      </div>
+      <div class="cards-grid">
+        <div class="soon-card">
+          <div class="soon-icon">🧮</div>
+          <div class="soon-name">Tally Prime</div>
+          <div class="soon-desc">Company creation, vouchers, GST entries aur balance sheet practice.</div>
+          <div class="soon-badge">🕐 Coming Soon</div>
+        </div>
+        <div class="soon-card">
+          <div class="soon-icon">🌐</div>
+          <div class="soon-name">Internet & Email</div>
+          <div class="soon-desc">Email compose karna, attachment, browser tools aur internet safety.</div>
+          <div class="soon-badge">🕐 Coming Soon</div>
+        </div>
+      </div>
+
+      <!-- INFO STRIP -->
+      <div class="info-strip">
+        <div class="is-text">
+          <h3>📞 Call for doubts</h3>
+          <p>In cas any problem in any question. you can msg me at this number --</p>
+        </div>
+        <a href="https://wa.me/919289882752" target="_blank" class="is-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          WhatsApp Now
+        </a>
+      </div>
+
     </div>
-    <div class="soon-card">
-      <div class="soon-icon">🌐</div>
-      <div class="soon-name">Internet & Email</div>
-      <div class="soon-desc">Email compose karna, attachment, browser tools aur internet safety.</div>
-      <div class="soon-badge">🕐 Coming Soon</div>
-    </div>
-  </div>
 
-  <!-- INFO STRIP -->
-  <div class="info-strip">
-    <div class="is-text">
-      <h3>📞 Call for doubts</h3>
-      <p>In cas any problem in any question. you can msg me at this number --</p>
-    </div>
-    <a href="https://wa.me/919289882752" target="_blank" class="is-btn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp Now
-    </a>
-  </div>
+    <script>
+      // Progress data from localStorage of each practical page
+      const subjects = [
+        { key: 'excel', total: 19, page: 'practical-excel' },
+        { key: 'word', total: 15, page: 'practical-word' },
+        { key: 'ppt', total: 14, page: 'practical-ppt' },
+        { key: 'notepad', total: 10, page: 'practical-notepad' },
+        { key: 'wordpad', total: 10, page: 'practical-wordpad' },
+        { key: 'paint', total: 10, page: 'practical-paint' },
+      ];
 
-</div>
-
-<script>
-// Progress data from localStorage of each practical page
-const subjects = [
-  { key:'excel',  total:19, page:'practical-excel'   },
-  { key:'word',   total:15, page:'practical-word'    },
-  { key:'ppt',    total:14, page:'practical-ppt'     },
-  { key:'notepad',total:10, page:'practical-notepad' },
-  { key:'wordpad',total:10, page:'practical-wordpad' },
-  { key:'paint',  total:10, page:'practical-paint'   },
-];
-
-// Try to read saved progress (if individual pages use localStorage in future)
-subjects.forEach(s => {
-  const saved = parseInt(localStorage.getItem('prog_'+s.key) || '0');
-  const pct = Math.round(saved / s.total * 100);
-  const bar = document.getElementById('prog-'+s.key);
-  const lbl = document.getElementById('lbl-'+s.key);
-  if(bar) bar.style.width = pct + '%';
-  if(lbl) lbl.textContent = saved + ' / ' + s.total + ' completed';
-});
-</script>
+      // Try to read saved progress (if individual pages use localStorage in future)
+      subjects.forEach(s => {
+        const saved = parseInt(localStorage.getItem('prog_' + s.key) || '0');
+        const pct = Math.round(saved / s.total * 100);
+        const bar = document.getElementById('prog-' + s.key);
+        const lbl = document.getElementById('lbl-' + s.key);
+        if (bar) bar.style.width = pct + '%';
+        if (lbl) lbl.textContent = saved + ' / ' + s.total + ' completed';
+      });
+    </script>
 </body>
+
 </html>
